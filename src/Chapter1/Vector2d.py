@@ -21,7 +21,7 @@ class Vector:
 
     def __mul__(self, other):
         return Vector(self.x * other,self.y * other)
-    
+
 v1 = Vector(2,4)
 print(v1)
 v2 = Vector(2,1)
