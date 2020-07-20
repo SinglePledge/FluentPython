@@ -2,6 +2,7 @@ import collections
 
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 
+
 class FrenchDeck:
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = 'spades diamonds clubs hearts'.split()
@@ -15,8 +16,6 @@ class FrenchDeck:
 
     def __getitem__(self, item):
         return self._cards[item]
-
-
 
 
 beer_card = Card('7', 'diamonds')
@@ -45,17 +44,20 @@ print('-----')
 for card in reversed(deck):
     print(card)
 
-#contains
+# contains
 
-print(Card('9','spands') in deck)
-print(Card('9','spades') in deck)
+print(Card('9', 'spands') in deck)
+print(Card('9', 'spades') in deck)
 
-#给牌添加权重
+# 给牌添加权重
 suits_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
+
+
 def spades_high(card):
     rank_values = FrenchDeck.ranks.index(card.rank)
-    return rank_values * len(suits_values)+suits_values[card.suit]
+    return rank_values * len(suits_values) + suits_values[card.suit]
 
-#suits_value
-for card in sorted(deck,key=spades_high):
+
+# suits_value
+for card in sorted(deck, key=spades_high):
     print(card)
