@@ -15,19 +15,19 @@ class Vector:
         return bool(abs(self))
 
     def __add__(self, other):
-        x=self.x+other.x
-        y=self.y+other.y
-        return Vector(x,y)
+        x = self.x+other.x
+        y = self.y+other.y
+        return Vector(x, y)
 
     def __mul__(self, other):
         return Vector(self.x * other,self.y * other)
 
-v1 = Vector(2,4)
+v1 = Vector(2, 4)
 print(v1)
-v2 = Vector(2,1)
+v2 = Vector(2, 1)
 print(v2)
 print(v1 + v2)
-v = Vector(3,4)
-print('abs:%r'%abs(v))
-print('v*3:%r'%(v*3))
-print('abs v*3:%r'%(abs(v*3)))
+v = Vector(3, 4)
+print('abs:%r' % abs(v))
+print('v*3:%r' % (v*3))
+print('abs v*3:%r' % (abs(v*3)))
