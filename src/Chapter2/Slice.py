@@ -77,3 +77,41 @@ for i in range(3):
 print(board)
 board[0][0]='X'
 print(board)
+'''
+#+=谜题
+t=(1,2,[3,4])
+#t的值会改变,并且tuple不支持对它的元素赋值,会抛出TypeError异常
+t[2]+=[5,6]
+print(t)
+'''
+import dis
+dis.dis('s[a]+=b')
+'''
+ 1           0 LOAD_NAME                0 (s)
+              2 LOAD_NAME                1 (a)
+              4 DUP_TOP_TWO
+              6 BINARY_SUBSCR       将s[a]的值存入TOS(top of stacks,栈的顶端
+              8 LOAD_NAME                2 (b)
+             10 INPLACE_ADD         计算TOS+=b.这一步能都完成,是因为TOS指向的是一个可变对象
+             12 ROT_THREE
+             14 STORE_SUBSCR        s[a]=TOS赋值.这一步失败,是因为s是不可变的元组
+             16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+'''
+fruits = ['grape','raspberry','apple','banana']
+#建立了一个新的按照字母排序的字符串列表
+print(sorted(fruits))
+#原列表没有变化
+print(fruits)
+#按照字母降序排列
+print(sorted(fruits,reverse=True))
+#新建一个按照长度排序的字符串列表
+print(sorted(fruits,key=len))
+#按照长度降序排序结果
+print(sorted(fruits,key=len,reverse=True))
+#一直到这,fruits原列表没有任何变化
+print(fruits)
+#对原列表就地排序,返回值None会被控制台忽略
+print(fruits.sort())
+#对fruits本身被排序
+print(fruits)
