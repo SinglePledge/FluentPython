@@ -26,7 +26,7 @@ print(remainder)
 # 让一个函数可以用元组的形式返回多个值,然后偶调用函数的代码就能接受这些返回值
 import os
 
-_, filename = os.path.split('d:\\1.txt')
+_, filename = os.path.split('d:\\test\\2.txt')
 print(filename)
 # _在gettext模块中,这个符号是一个特殊的函数常用名
 
